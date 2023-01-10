@@ -1,5 +1,3 @@
-<!-- Table -->
-
 | Graph      | Partitioning Parts | Posible partitioning configurations |
 | ---------- | ------------------ | ----------------------------------- |
 | AlexNet    | 8                  | 45                                  |
@@ -26,10 +24,6 @@ Possible partitioning configurations = 1 + 2 + ... + (PP+1) = (PP+1)((PP+1)+1)/2
 | 2100000                 |
 | 2208000                 |
 | Count: 13               |
-
-<!--
-    500000, 667000, 1000000, 1200000, 1398000, 1512000, 1608000, 1704000, 1800000,
-  -->
 
 | Small Cluster Frequencies |
 | ------------------------- |

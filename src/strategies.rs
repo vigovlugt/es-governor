@@ -8,7 +8,9 @@ use crate::{
 pub struct StrategyContext {
     pub graph: String,
     pub partitions: i32,
+    // Frames per second
     pub target_fps: i32,
+    // Milliseconds
     pub target_latency: i32,
     pub pipe_all: PipeAll,
     pub hardware: Hardware,
