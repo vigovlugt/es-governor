@@ -16,6 +16,7 @@ pub struct StrategyContext {
 
 pub struct StrategyResult {
     pub args: PipeAllArgs,
+    pub hardware: Hardware,
     pub results: PipeAllResults,
 }
 

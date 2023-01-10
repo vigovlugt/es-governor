@@ -75,8 +75,8 @@ fn main() {
         Some(result) => {
             println!(
                 "Solution Was Found.\n TargetBigFrequency:{} \t TargetLittleFrequency:{} \t PartitionPoint1:{} \t PartitionPoint2:{} \t Order:{}\n",
-                ctx.hardware.big.frequency,
-                ctx.hardware.little.frequency,
+                result.hardware.big.frequency,
+                result.hardware.little.frequency,
                 result.args.partition_point1,
                 result.args.partition_point2,
                 result.args.order

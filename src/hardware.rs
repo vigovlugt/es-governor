@@ -1,5 +1,6 @@
 use crate::utils::run_command;
 
+#[derive(Debug, Clone)]
 pub struct Hardware {
     pub little: Cores,
     pub big: Cores,
@@ -10,6 +11,7 @@ impl Hardware {
     }
 }
 
+#[derive(Debug, Clone)]
 pub struct Cores {
     pub name: String,
     pub frequency_policy: i32,

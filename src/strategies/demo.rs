@@ -35,7 +35,11 @@ impl Strategy for DemoStrategy {
             let results = ctx.pipe_all.run(&args);
             if Self::is_valid_result(ctx, results.fps, results.latency) {
                 // Both Latency and Throughput Requirements are Met.
-                return Some(StrategyResult { args, results });
+                return Some(StrategyResult {
+                    args,
+                    results,
+                    hardware: ctx.hardware.clone(),
+                });
             }
 
             println!("Target Performance Not Satisfied\n\n");
