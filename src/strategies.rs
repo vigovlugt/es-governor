@@ -1,8 +1,9 @@
 pub mod demo;
+pub mod performance_benchmark;
 
 use crate::{
     hardware::Hardware,
-    pipe_all::{PipeAll, PipeAllArgs, PipeAllResults},
+    pipe_all::{PipeAll, PipeAllArgs, PipeAllResult},
 };
 
 pub struct StrategyContext {
@@ -16,10 +17,11 @@ pub struct StrategyContext {
     pub hardware: Hardware,
 }
 
+#[derive(Default, Debug)]
 pub struct StrategyResult {
     pub args: PipeAllArgs,
     pub hardware: Hardware,
-    pub results: PipeAllResults,
+    pub results: PipeAllResult,
 }
 
 pub trait Strategy {

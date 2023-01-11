@@ -6,15 +6,19 @@ mod utils;
 
 use std::env;
 
-use consts::{BIG_FREQUENCIES, LITTLE_FREQUENCIES};
-use hardware::Hardware;
-use pipe_all::PipeAll;
-use utils::run_command;
-
 use crate::{
     hardware::Cores,
-    strategies::{demo::DemoStrategy, Strategy, StrategyContext},
+    strategies::{
+        demo::DemoStrategy, performance_benchmark::PerformanceBenchmarkStrategy, Strategy,
+        StrategyContext,
+    },
 };
+use consts::{BIG_FREQUENCIES, LITTLE_FREQUENCIES};
+use hardware::Hardware;
+use log::{error, info};
+use pipe_all::PipeAll;
+use std::io::Write;
+use utils::run_command;
 
 fn setup_governor(hardware: &mut Hardware) {
     // Export OpenCL library path
@@ -29,14 +33,24 @@ fn setup_governor(hardware: &mut Hardware) {
         .expect("Failed to set governor of big cores");
 
     // Initialize Little and Big CPU with Lowest Frequency
-    hardware.little.set_frequency(LITTLE_FREQUENCIES[0]);
-    hardware.big.set_frequency(BIG_FREQUENCIES[0]);
+    hardware
+        .little
+        .set_frequency(LITTLE_FREQUENCIES[LITTLE_FREQUENCIES.len() - 1]);
+    hardware
+        .big
+        .set_frequency(BIG_FREQUENCIES[BIG_FREQUENCIES.len() - 1]);
 }
 
 fn main() {
+    env_logger::Builder::from_default_env()
+        .format(|buf, record| writeln!(buf, "{} - {}", record.level(), record.args()))
+        .init();
+
+    //format_timestamp_secs()
+
     let args: Vec<String> = env::args().collect();
     if args.len() < 5 {
-        println!("Wrong number of input arguments.");
+        error!("Wrong number of input arguments.");
         return;
     }
 
@@ -51,8 +65,6 @@ fn main() {
     );
     let pipe_all = PipeAll::new();
 
-    // Checking if processor is available
-    assert!(run_command("command -v true").unwrap().success());
     setup_governor(&mut hardware);
 
     // Setup strategy
@@ -65,15 +77,16 @@ fn main() {
         hardware,
     };
 
-    let strategy = DemoStrategy::new();
+    let strategy = PerformanceBenchmarkStrategy::new();
 
     // Run strategy
+    info!("Starting strategy");
     let result = strategy.run(&mut ctx);
 
     // Handle strategy result
     match result {
         Some(result) => {
-            println!(
+            info!(
                 "Solution Was Found.\n TargetBigFrequency:{} \t TargetLittleFrequency:{} \t PartitionPoint1:{} \t PartitionPoint2:{} \t Order:{}\n",
                 result.hardware.big.frequency,
                 result.hardware.little.frequency,
@@ -81,9 +94,10 @@ fn main() {
                 result.args.partition_point2,
                 result.args.order
             );
+            info!("{:#?}", result);
         }
         None => {
-            println!("No Solution Found");
+            error!("No Solution Found");
         }
     }
 }

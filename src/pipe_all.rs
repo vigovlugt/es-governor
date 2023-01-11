@@ -1,5 +1,7 @@
+use serde::{Deserialize, Serialize};
 use std::process::Command;
 
+#[derive(Debug, Default)]
 pub struct PipeAllArgs {
     pub graph: String,
     pub n_frames: i32,
@@ -8,45 +10,47 @@ pub struct PipeAllArgs {
     pub order: String,
 }
 
-pub struct PipeAllResults {
-    pub fps: f32,
-    pub latency: f32,
-    pub stage_one_inference_time: f32,
-    pub stage_two_inference_time: f32,
-    pub stage_three_inference_time: f32,
+#[derive(Debug, Default, Serialize, Deserialize)]
+pub struct PipeAllStageResult {
+    pub input_time: f32,
+    pub inference_time: f32,
+    pub total_time: f32,
 }
 
-impl PipeAllResults {
-    pub fn parse_results(output: String) -> PipeAllResults {
+#[derive(Debug, Default, Serialize, Deserialize)]
+pub struct PipeAllResult {
+    pub fps: f32,
+    pub latency: f32,
+    pub stage_one: PipeAllStageResult,
+    pub stage_two: PipeAllStageResult,
+    pub stage_three: PipeAllStageResult,
+}
+
+impl PipeAllResult {
+    pub fn parse_results(output: String) -> PipeAllResult {
         let mut fps: f32 = 0.0;
         let mut latency: f32 = 0.0;
-        let mut stage_one_inference_time: f32 = 0.0;
-        let mut stage_two_inference_time: f32 = 0.0;
-        let mut stage_three_inference_time: f32 = 0.0;
+        let mut stage_one = PipeAllStageResult::default();
+        let mut stage_two = PipeAllStageResult::default();
+        let mut stage_three = PipeAllStageResult::default();
 
         for line in output.lines() {
             let line = line.trim();
 
-            fps = extract(line, "Frame rate is:").unwrap_or(fps);
-            latency = extract(line, "Frame latency is:").unwrap_or(latency);
+            fps = extract("Frame rate is:", line).unwrap_or(fps);
+            latency = extract("Frame latency is:", line).unwrap_or(latency);
 
-            stage_one_inference_time =
-                extract(line, "stage1_inference_time:").unwrap_or(stage_one_inference_time);
-            stage_two_inference_time =
-                extract(line, "stage2_inference_time:").unwrap_or(stage_two_inference_time);
-            stage_three_inference_time =
-                extract(line, "stage3_inference_time:").unwrap_or(stage_three_inference_time);
+            extract_to_stage("1", &mut stage_one, line);
+            extract_to_stage("2", &mut stage_two, line);
+            extract_to_stage("3", &mut stage_three, line);
         }
 
-        println!("Throughput is: {:.2} FPS", fps);
-        println!("Latency is: {:.2} ms", latency);
-
-        return PipeAllResults {
+        return PipeAllResult {
             fps,
             latency,
-            stage_one_inference_time,
-            stage_two_inference_time,
-            stage_three_inference_time,
+            stage_one,
+            stage_two,
+            stage_three,
         };
     }
 }
@@ -58,9 +62,9 @@ impl PipeAll {
         PipeAll {}
     }
 
-    pub fn run(&self, args: &PipeAllArgs) -> PipeAllResults {
+    pub fn run(&self, args: &PipeAllArgs) -> PipeAllResult {
         let cmd = format!(
-            "./{} --threads=4 --threads2=2 --target=NEON --n={} --partition_point={} --partition_point2={} --order={} > output.txt",
+            "./{} --threads=4 --threads2=2 --target=NEON --n={} --partition_point={} --partition_point2={} --order={}",
             args.graph, args.n_frames, args.partition_point1, args.partition_point2, args.order
         );
         let output = Command::new("sh")
@@ -70,11 +74,20 @@ impl PipeAll {
             .expect("Failed to run the command");
         let output_str = String::from_utf8(output.stdout).unwrap();
 
-        return PipeAllResults::parse_results(output_str);
+        return PipeAllResult::parse_results(output_str);
     }
 }
 
-fn extract(line: &str, prefix: &str) -> Option<f32> {
+fn extract_to_stage(n: &str, stage: &mut PipeAllStageResult, line: &str) {
+    stage.input_time =
+        extract(&format!("stage{}_input_time:", n), line).unwrap_or(stage.input_time);
+    stage.inference_time =
+        extract(&format!("stage{}_inference_time:", n), line).unwrap_or(stage.inference_time);
+    stage.total_time =
+        extract(&format!("stage{}_total_time:", n), line).unwrap_or(stage.total_time);
+}
+
+fn extract(prefix: &str, line: &str) -> Option<f32> {
     if !line.starts_with(prefix) {
         return None;
     }

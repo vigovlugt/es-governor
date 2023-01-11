@@ -1,0 +1,1 @@
+adb shell /data/local/Working_dir/Governor graph_googlenet_all_pipe_sync 13 5 400

@@ -1,0 +1,531 @@
+[
+  {
+    "component": "L",
+    "frequency": 500000,
+    "result": {
+      "fps": 0.57795,
+      "latency": 1730.25,
+      "stage_one": {
+        "input_time": 0.00211248,
+        "inference_time": 1730.25,
+        "total_time": 1730.25
+      },
+      "stage_two": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      },
+      "stage_three": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      }
+    }
+  },
+  {
+    "component": "L",
+    "frequency": 667000,
+    "result": {
+      "fps": 0.769058,
+      "latency": 1300.29,
+      "stage_one": {
+        "input_time": 0.0017494,
+        "inference_time": 1300.29,
+        "total_time": 1300.29
+      },
+      "stage_two": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      },
+      "stage_three": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      }
+    }
+  },
+  {
+    "component": "L",
+    "frequency": 1000000,
+    "result": {
+      "fps": 1.12846,
+      "latency": 886.165,
+      "stage_one": {
+        "input_time": 0.00142355,
+        "inference_time": 886.164,
+        "total_time": 886.165
+      },
+      "stage_two": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      },
+      "stage_three": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      }
+    }
+  },
+  {
+    "component": "L",
+    "frequency": 1200000,
+    "result": {
+      "fps": 1.32479,
+      "latency": 754.839,
+      "stage_one": {
+        "input_time": 0.00124722,
+        "inference_time": 754.838,
+        "total_time": 754.839
+      },
+      "stage_two": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      },
+      "stage_three": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      }
+    }
+  },
+  {
+    "component": "L",
+    "frequency": 1398000,
+    "result": {
+      "fps": 1.50364,
+      "latency": 665.053,
+      "stage_one": {
+        "input_time": 0.00123343,
+        "inference_time": 665.052,
+        "total_time": 665.053
+      },
+      "stage_two": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      },
+      "stage_three": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      }
+    }
+  },
+  {
+    "component": "L",
+    "frequency": 1512000,
+    "result": {
+      "fps": 1.60734,
+      "latency": 622.147,
+      "stage_one": {
+        "input_time": 0.00122222,
+        "inference_time": 622.146,
+        "total_time": 622.147
+      },
+      "stage_two": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      },
+      "stage_three": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      }
+    }
+  },
+  {
+    "component": "L",
+    "frequency": 1608000,
+    "result": {
+      "fps": 1.68763,
+      "latency": 592.549,
+      "stage_one": {
+        "input_time": 0.00112772,
+        "inference_time": 592.547,
+        "total_time": 592.549
+      },
+      "stage_two": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      },
+      "stage_three": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      }
+    }
+  },
+  {
+    "component": "L",
+    "frequency": 1704000,
+    "result": {
+      "fps": 1.76062,
+      "latency": 567.982,
+      "stage_one": {
+        "input_time": 0.00114647,
+        "inference_time": 567.98,
+        "total_time": 567.982
+      },
+      "stage_two": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      },
+      "stage_three": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      }
+    }
+  },
+  {
+    "component": "L",
+    "frequency": 1800000,
+    "result": {
+      "fps": 1.84004,
+      "latency": 543.467,
+      "stage_one": {
+        "input_time": 0.0011138,
+        "inference_time": 543.466,
+        "total_time": 543.467
+      },
+      "stage_two": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      },
+      "stage_three": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      }
+    }
+  },
+  {
+    "component": "B",
+    "frequency": 500000,
+    "result": {
+      "fps": 2.2704,
+      "latency": 440.451,
+      "stage_one": {
+        "input_time": 0.00156318,
+        "inference_time": 440.449,
+        "total_time": 440.451
+      },
+      "stage_two": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      },
+      "stage_three": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      }
+    }
+  },
+  {
+    "component": "B",
+    "frequency": 667000,
+    "result": {
+      "fps": 3.26684,
+      "latency": 306.106,
+      "stage_one": {
+        "input_time": 0.00134792,
+        "inference_time": 306.105,
+        "total_time": 306.106
+      },
+      "stage_two": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      },
+      "stage_three": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      }
+    }
+  },
+  {
+    "component": "B",
+    "frequency": 1000000,
+    "result": {
+      "fps": 4.83761,
+      "latency": 206.714,
+      "stage_one": {
+        "input_time": 0.00103612,
+        "inference_time": 206.712,
+        "total_time": 206.714
+      },
+      "stage_two": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      },
+      "stage_three": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      }
+    }
+  },
+  {
+    "component": "B",
+    "frequency": 1200000,
+    "result": {
+      "fps": 5.75553,
+      "latency": 173.746,
+      "stage_one": {
+        "input_time": 0.000966667,
+        "inference_time": 173.745,
+        "total_time": 173.746
+      },
+      "stage_two": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      },
+      "stage_three": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      }
+    }
+  },
+  {
+    "component": "B",
+    "frequency": 1398000,
+    "result": {
+      "fps": 6.64969,
+      "latency": 150.383,
+      "stage_one": {
+        "input_time": 0.000884733,
+        "inference_time": 150.382,
+        "total_time": 150.383
+      },
+      "stage_two": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      },
+      "stage_three": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      }
+    }
+  },
+  {
+    "component": "B",
+    "frequency": 1512000,
+    "result": {
+      "fps": 7.1159,
+      "latency": 140.53,
+      "stage_one": {
+        "input_time": 0.000909017,
+        "inference_time": 140.53,
+        "total_time": 140.53
+      },
+      "stage_two": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      },
+      "stage_three": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      }
+    }
+  },
+  {
+    "component": "B",
+    "frequency": 1608000,
+    "result": {
+      "fps": 7.4823,
+      "latency": 133.649,
+      "stage_one": {
+        "input_time": 0.000881967,
+        "inference_time": 133.648,
+        "total_time": 133.649
+      },
+      "stage_two": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      },
+      "stage_three": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      }
+    }
+  },
+  {
+    "component": "B",
+    "frequency": 1704000,
+    "result": {
+      "fps": 7.89363,
+      "latency": 126.684,
+      "stage_one": {
+        "input_time": 0.000854867,
+        "inference_time": 126.684,
+        "total_time": 126.684
+      },
+      "stage_two": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      },
+      "stage_three": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      }
+    }
+  },
+  {
+    "component": "B",
+    "frequency": 1800000,
+    "result": {
+      "fps": 8.2226,
+      "latency": 121.616,
+      "stage_one": {
+        "input_time": 0.000823617,
+        "inference_time": 121.615,
+        "total_time": 121.616
+      },
+      "stage_two": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      },
+      "stage_three": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      }
+    }
+  },
+  {
+    "component": "B",
+    "frequency": 1908000,
+    "result": {
+      "fps": 8.69243,
+      "latency": 115.043,
+      "stage_one": {
+        "input_time": 0.000882017,
+        "inference_time": 115.042,
+        "total_time": 115.043
+      },
+      "stage_two": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      },
+      "stage_three": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      }
+    }
+  },
+  {
+    "component": "B",
+    "frequency": 2016000,
+    "result": {
+      "fps": 9.1052,
+      "latency": 109.827,
+      "stage_one": {
+        "input_time": 0.000813217,
+        "inference_time": 109.827,
+        "total_time": 109.827
+      },
+      "stage_two": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      },
+      "stage_three": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      }
+    }
+  },
+  {
+    "component": "B",
+    "frequency": 2100000,
+    "result": {
+      "fps": 9.35197,
+      "latency": 106.929,
+      "stage_one": {
+        "input_time": 0.00085895,
+        "inference_time": 106.928,
+        "total_time": 106.929
+      },
+      "stage_two": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      },
+      "stage_three": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      }
+    }
+  },
+  {
+    "component": "B",
+    "frequency": 2208000,
+    "result": {
+      "fps": 9.75922,
+      "latency": 102.467,
+      "stage_one": {
+        "input_time": 0.0007958,
+        "inference_time": 102.466,
+        "total_time": 102.467
+      },
+      "stage_two": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      },
+      "stage_three": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      }
+    }
+  },
+  {
+    "component": "G",
+    "frequency": 0,
+    "result": {
+      "fps": 10.9274,
+      "latency": 91.5134,
+      "stage_one": {
+        "input_time": 0.240012,
+        "inference_time": 91.2734,
+        "total_time": 91.5134
+      },
+      "stage_two": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      },
+      "stage_three": {
+        "input_time": 0.0,
+        "inference_time": 0.0,
+        "total_time": 0.0
+      }
+    }
+  }
+]

@@ -1,6 +1,7 @@
 use crate::utils::run_command;
+use log::debug;
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Default)]
 pub struct Hardware {
     pub little: Cores,
     pub big: Cores,
@@ -11,7 +12,7 @@ impl Hardware {
     }
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Default)]
 pub struct Cores {
     pub name: String,
     pub frequency_policy: i32,
@@ -27,7 +28,7 @@ impl Cores {
     }
 
     pub fn set_frequency(&mut self, freq: i32) {
-        println!("Increasing Frequency of {} Cores to {}", self.name, freq);
+        debug!("Setting Frequency of {} Cores to {}", self.name, freq);
         run_command(&format!(
             "echo {} > /sys/devices/system/cpu/cpufreq/policy{}/scaling_max_freq",
             freq, self.frequency_policy
