@@ -45,7 +45,7 @@ impl Strategy for DemoStrategy {
             let results = ctx.pipe_all.run(&args);
             debug!("{:#?}", results);
 
-            if Self::is_valid_result(ctx, results.fps, results.latency) {
+            if self.is_valid_result(ctx, results.fps, results.latency) {
                 // Both Latency and Throughput Requirements are Met.
                 return Some(StrategyResult {
                     args,

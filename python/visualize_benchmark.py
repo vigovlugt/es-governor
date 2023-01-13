@@ -10,21 +10,21 @@ networks = [
 ]
 
 
-def make_graph(data_by_network, component):
-    for network in networks:
+def make_graph(data_by_network, component, network):
+    for n_frames in [10, 15, 25, 40, 60, 90]:
         component_data = [x for x in data_by_network[network]
-                          if x['component'] == component]
+                          if x['component'] == component and x['n_frames'] == n_frames]
 
         frequencies = [x['frequency'] for x in component_data]
         fps = [x["result"]["fps"] for x in component_data]
 
-        min_fps = fps[0]
-        normalized_fps = [x / min_fps for x in fps]
+        # min_fps = fps[1]
+        # normalized_fps = [x / min_fps for x in fps]
 
         if component == "G":
             plt.bar([0], fps, label=network)
         else:
-            plt.plot(frequencies, normalized_fps, label=network)
+            plt.plot(frequencies, fps, label=n_frames)
 
     plt.legend()
     plt.title(component)
@@ -40,9 +40,9 @@ def main():
         with open(f"./output/performance-benchmarks/{network}.json") as file:
             data_by_network[network] = json.loads(file.read())
 
-    make_graph(data_by_network, "L")
-    make_graph(data_by_network, "B")
-    make_graph(data_by_network, "G")
+    make_graph(data_by_network, "L", "alexnet")
+    make_graph(data_by_network, "B", "alexnet")
+    # make_graph(data_by_network, "G")
 
 
 main()

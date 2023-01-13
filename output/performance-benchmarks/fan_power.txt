@@ -1,0 +1,5 @@
+0.300 - 0.310 ma idle fan 0 (normal idle)
+0.312 - 0.322 ma idle fan 1
+0.328 - 0.338 ma idle fan 2
+0.350 - 0.360 ma idle fan 3
+0.370 - 0.380 ma idle fan 4 (competition idle)

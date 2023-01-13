@@ -1,6 +1,22 @@
 use crate::utils::run_command;
 use log::debug;
 
+pub enum Component {
+    Big,
+    Little,
+    Gpu,
+}
+
+impl ToString for Component {
+    fn to_string(&self) -> String {
+        match self {
+            Component::Big => "B".to_owned(),
+            Component::Gpu => "G".to_owned(),
+            Component::Little => "L".to_owned(),
+        }
+    }
+}
+
 #[derive(Debug, Clone, Default)]
 pub struct Hardware {
     pub little: Cores,

@@ -1,6 +1,7 @@
 mod consts;
 mod hardware;
 mod pipe_all;
+pub mod power_calculator;
 mod strategies;
 mod utils;
 
@@ -8,10 +9,7 @@ use std::env;
 
 use crate::{
     hardware::Cores,
-    strategies::{
-        demo::DemoStrategy, performance_benchmark::PerformanceBenchmarkStrategy, Strategy,
-        StrategyContext,
-    },
+    strategies::{get_strategy_by_name, StrategyContext},
 };
 use consts::{BIG_FREQUENCIES, LITTLE_FREQUENCIES};
 use hardware::Hardware;
@@ -58,6 +56,7 @@ fn main() {
     let partitions = args[2].parse::<i32>().unwrap();
     let target_fps = args[3].parse::<i32>().unwrap();
     let target_latency = args[4].parse::<i32>().unwrap();
+    let strategy_name = if args.len() == 6 { &args[5] } else { "demo" };
 
     let mut hardware = Hardware::new(
         Cores::new("Little".to_string(), 0),
@@ -77,10 +76,10 @@ fn main() {
         hardware,
     };
 
-    let strategy = PerformanceBenchmarkStrategy::new();
+    let strategy = get_strategy_by_name(strategy_name).expect("Strategy not found");
 
     // Run strategy
-    info!("Starting strategy");
+    info!("Starting strategy {}", strategy_name);
     let result = strategy.run(&mut ctx);
 
     // Handle strategy result

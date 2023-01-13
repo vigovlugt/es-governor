@@ -73,6 +73,7 @@ impl PipeAll {
             .output()
             .expect("Failed to run the command");
         let output_str = String::from_utf8(output.stdout).unwrap();
+        println!("{}", output_str);
 
         return PipeAllResult::parse_results(output_str);
     }

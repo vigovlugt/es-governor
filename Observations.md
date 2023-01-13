@@ -1,10 +1,10 @@
-| Graph      | Partitioning Parts | Posible partitioning configurations |
-| ---------- | ------------------ | ----------------------------------- |
-| AlexNet    | 8                  | 45                                  |
-| GoogleNet  | 13                 | 105                                 |
-| MobileNet  | 28                 | 435                                 |
-| ResNet50   | 18                 | 190                                 |
-| SqueezeNet | 19                 | 210                                 |
+| Graph      | Partitioning Parts | Possible partitioning configurations |
+| ---------- | ------------------ | ------------------------------------ |
+| AlexNet    | 8                  | 45                                   |
+| GoogleNet  | 13                 | 105                                  |
+| MobileNet  | 28                 | 435                                  |
+| ResNet50   | 18                 | 190                                  |
+| SqueezeNet | 19                 | 210                                  |
 
 Possible partitioning configurations = 1 + 2 + ... + (PP+1) = (PP+1)((PP+1)+1)/2
 
@@ -84,3 +84,9 @@ Then choose optimal configuration with this knowledge.
 CPU speed should be linear with frequency, so no need to calculate for each individual freq.
 
 We know the input time, so we only need to calculate this once per PP per GP/Little/Big.
+
+## Power
+
+Delta compared to idle
+Influence of clocks on idle usage (setting baseline power draw for various clock configurations)
+GPU power draw (relatively simple) - Variations in power draw for different networks / pipeline configurations at full utilization (gpu has to be the bottleneck)
