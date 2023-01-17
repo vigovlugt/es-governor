@@ -55,6 +55,10 @@ Possible partitioning configurations = 1 + 2 + ... + (PP+1) = (PP+1)((PP+1)+1)/2
 | ResNet50   | 118560  |
 | SqueezeNet | 131040  |
 
+Latency = sum(stage_total_times)
+Framerate = 1/ max(stage_total_times)
+In case of a bottleneck: actual stage_n_inference time = stage_n_inference_time - stage_n+1_input time (or total, the two are close enough without any bottlenecks)
+
 ## Constraints
 
 GPU pipeline stage duration can only be changed by partitioning.
