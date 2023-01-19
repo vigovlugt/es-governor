@@ -22,11 +22,19 @@ colormap = {
 
 
 def make_graph(data, name, used_component):
+    used = {
+        "G-L-B": False,
+        "G-B-L": False,
+        "B-G-L": False,
+        "B-L-G": False,
+        "L-B-G": False,
+        "L-G-B": False,
+    }
 
     for i, dpoint in enumerate(data):
         component = dpoint["component"]  # "L", "B" or "G"
-        # if component != used_component:
-        #     continue
+        if component != used_component:
+            continue
         partition1, partition2 = dpoint['partition_point1'], dpoint['partition_point2']
 
         stage = ["stage_one", "stage_two"][dpoint["stage"] - 1]
@@ -48,6 +56,7 @@ def make_graph(data, name, used_component):
         elif component == "G":
             order = ["B-G-L", "L-G-B"][halfIndex]
 
+        used[order] = True
         plt.semilogy([partition1 + 0.1, partition2 - 0.1], [itime, itime],
                      #  color=colors[(duration) %
                      #               len(colors)],
@@ -55,18 +64,15 @@ def make_graph(data, name, used_component):
                      linewidth=2 / duration,
                      label=order)
 
-    plt.title(f"{name} - all")
-    # plt.title(f"{name} - {used_component}")
+    plt.title(f"{name} - {used_component}")
     plt.xlabel("Stage")
     plt.ylabel("Inference time")
 
-    custom_lines = [Line2D([0], [0], color=color, lw=4)
-                    for color in colormap.values()]
-
-    plt.legend(custom_lines, colormap.keys())
+    custom_lines = [(Line2D([0], [0], color=color, lw=4), key)
+                    for key, color in colormap.items() if used[key]]
+    plt.legend(*zip(*custom_lines))
     plt.savefig(
-        f"./output/performance-benchmarks/stages-{name}-all-full.png")
-    # f"./output/performance-benchmarks/stages-{name}-{used_component}-full.png")
+        f"./output/performance-benchmarks/stages-{name}-{used_component}.png")
     plt.close()
 
 
@@ -77,7 +83,8 @@ def main():
             data_by_network[network] = json.loads(file.read())
 
     for network in networks:
-        make_graph(data_by_network[network], network, "L")
+        for component in ["G", "B", "L"]:
+            make_graph(data_by_network[network], network, component)
 
 
 main()

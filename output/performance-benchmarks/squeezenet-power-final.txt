@@ -1,0 +1,100 @@
+L : 500000
+Power is: 0.415
+Frame rate is: 1.05123 FPS
+Frame latency is: 951.269 ms
+L : 667000
+Power is: 0.425
+Frame rate is: 1.38173 FPS
+Frame latency is: 723.729 ms
+L : 1000000
+Power is: 0.435
+Frame rate is: 1.99003 FPS
+Frame latency is: 502.504 ms
+L : 1200000
+Power is: 0.45
+Frame rate is: 2.30807 FPS
+Frame latency is: 433.262 ms
+L : 1398000
+Power is: 0.46
+Frame rate is: 2.59347 FPS
+Frame latency is: 385.584 ms
+L : 1512000
+Power is: 0.475
+Frame rate is: 2.75255 FPS
+Frame latency is: 363.3 ms
+L : 1608000
+Power is: 0.485
+Frame rate is: 2.87657 FPS
+Frame latency is: 347.636 ms
+L : 1704000
+Power is: 0.492
+Frame rate is: 2.99384 FPS
+Frame latency is: 334.019 ms
+L : 1800000
+Power is: 0.5
+Frame rate is: 3.10581 FPS
+Frame latency is: 321.977 ms
+B : 500000
+Power is: 0.51
+Frame rate is: 4.4137 FPS
+Frame latency is: 226.567 ms
+B : 667000
+Power is: 0.54
+Frame rate is: 6.19729 FPS
+Frame latency is: 161.361 ms
+B : 1000000
+Power is: 0.61
+Frame rate is: 9.00556 FPS
+Frame latency is: 111.043 ms
+B : 1200000
+Power is: 0.68
+Frame rate is: 10.526 FPS
+Frame latency is: 95.0028 ms
+B : 1398000
+Power is: 0.72
+Frame rate is: 11.811 FPS
+Frame latency is: 84.667 ms
+B : 1512000
+Power is: 0.735
+Frame rate is: 12.6533 FPS
+Frame latency is: 79.0306 ms
+B : 1608000
+Power is: 0.77
+Frame rate is: 13.2036 FPS
+Frame latency is: 75.7369 ms
+B : 1704000
+Power is: 0.79
+Frame rate is: 13.8444 FPS
+Frame latency is: 72.2314 ms
+B : 1800000
+Power is: 0.84
+Frame rate is: 14.3751 FPS
+Frame latency is: 69.5645 ms
+B : 1908000
+Power is: 0.91
+Frame rate is: 14.8914 FPS
+Frame latency is: 67.1528 ms
+B : 2016000
+Power is: 0.98
+Frame rate is: 15.4789 FPS
+Frame latency is: 64.604 ms
+B : 2100000
+Power is: 1.08
+Frame rate is: 15.9173 FPS
+Frame latency is: 62.8245 ms
+B : 2208000
+Power is: 1.24
+Frame rate is: 16.4294 FPS
+Frame latency is: 60.8665 ms
+G
+Power is: 0.63
+Frame rate is: 16.1631 FPS
+Frame latency is: 61.8691 ms
+G+B 2208000
+Power is: 1.3
+Frame rate is: 30.49 FPS
+Frame latency is: 65.2726 ms
+G+B 1704000
+Power is: 0.93
+Frame rate is: 29.2236 FPS
+Frame latency is: 68.3204 ms
